@@ -14,8 +14,7 @@ udfs.refs.local();
 
 To add a file and bakeup other masternode use (the push method returns a list of merklenodes, in this case there is only one element):
 ```python
-NamedStreamable.FileWrapper file = new NamedStreamable.FileWrapper(new File("udfs.txt"));
-MerkleNode addResult = udfs.push(file).get(0);
+udfs.push('c:/xxx/.file');
 ```
 
 To push a byte[] use:
