@@ -19,5 +19,5 @@ connect.push(filepath)
 
 download file from the UDFS according to the udfs hash:
 ```python
-self.connect.get(filehash, filepath=filepath)
+connect.get(filehash, filepath=filepath)
 ```
