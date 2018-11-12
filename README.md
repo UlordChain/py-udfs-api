@@ -4,36 +4,20 @@
 
 Create an UDFS instance with:
 ```python
-UDFS udfs = new UDFS("127.0.0.1",5001);
+connect = udfsapi.connect(host=host, port=port)
 ```
 
-Then run commands like:
+upload the file:
 ```python
-udfs.refs.local();
+connect.add(filepath)
 ```
 
 To add a file and bakeup other masternode use (the push method returns a list of merklenodes, in this case there is only one element):
 ```python
-udfs.push('c:/xxx/.file');
+connect.push(filepath)
 ```
 
-To push a byte[] use:
+download file from the UDFS according to the udfs hash:
 ```python
-NamedStreamable.ByteArrayWrapper file = new NamedStreamable.ByteArrayWrapper("udfs.txt", "hello world".getBytes());
-MerkleNode addResult = udfs.push(file).get(0);
+self.connect.get(filehash, filepath=filepath)
 ```
-
-To get a file use:
-```python
-Multihash filePointer = Multihash.fromBase58("hash值");
-byte[] fileContents = udfs.cat(filePointer);
-```
-
-## Dependencies
-
-Current versions of dependencies are included in the `./lib` directory.
-
-* [multibase](https://github.com/multiformats/java-multibase)
-* [multiaddr](https://github.com/multiformats/java-multiaddr)
-* [multihash](https://github.com/multiformats/java-multihash)
-* [cid](https://github.com/ipld/java-cid)
